@@ -1,0 +1,17 @@
+Original client requirement
+
+Write a program in Java that takes a list of A4 print jobs and calculates the cost of
+ each
+ job, given the total number of pages, number of colour pages and whether printing 
+ is double sided.  
+
+The application should:
+Requirements:
+  * Read print jobs from a file (see attached file for an example.)
+  * Output the job details and job cost for each job to the console
+  * Output the total cost of all jobs
+  
+  
+User stories:
+When I have the application open I should be able to show the path to the file
+ that has the print job information
