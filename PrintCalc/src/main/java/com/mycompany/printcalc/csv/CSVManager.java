@@ -37,15 +37,11 @@ public class CSVManager {
     }
     
     private void openCSVFileWithPath(String fileName){
-    
+    //TODO add functionality to read from given path
     }
     
-    private void parseCSV(){
-        
-    }
-    
+  
     public List<CSVRecord> getPrintJobInResourceFile(String fileNameInResource) throws IOException {
-//        try {
 
             CSVParser csvParser = new CSVParser(openCSVResource(fileNameInResource), CSVFormat.DEFAULT.withHeader().withIgnoreSurroundingSpaces(true));
             List<CSVRecord> csvs = csvParser.getRecords();
@@ -55,12 +51,7 @@ public class CSVManager {
             }
             return csvs;
 
-//        } catch (FileNotFoundException ex) {
-//            Logger.getLogger(CSVManager.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (IOException ex) {
-//            Logger.getLogger(CSVManager.class.getName()).log(Level.SEVERE, null, ex);
-//        }
         
     }
-    
+        
 }
