@@ -32,11 +32,12 @@ public class Prices {
     public static Prices getInstance(){
         if(prices == null){
             prices = new Prices();
+            prices.initPrices();
         }
         return prices;
     }
     
-     public Properties initPrices(){
+     protected Properties initPrices(){
         Properties properties = getPropertyFile();
         setPropertyValues(properties);
 
@@ -47,7 +48,6 @@ public class Prices {
         Properties properties = new Properties();
         InputStream inputStream = null;
         try {
-//            inputStream = new FileInputStream("print_cost.properties");
             inputStream = Prices.class.getClassLoader().getResourceAsStream("print_costs.properties");
             // load a properties file
             properties.load(inputStream);
@@ -65,6 +65,7 @@ public class Prices {
          this.setSingleBlack(Float.parseFloat( properties.getProperty(this.singleBlackCost)));
          this.setSingleColor(Float.parseFloat(properties.getProperty(this.singleColorCost)));
      }
+     
 
     public float getDoubleBlack() {
         return doubleBlack;

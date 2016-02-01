@@ -56,7 +56,7 @@ public class PricesTest {
         Prices prices = Prices.getInstance();
         Properties p = prices.initPrices();
         
-        assertEquals("Failed to initialize costs ", prices.getSingleColor(), 0.25,0);
+        assertEquals("Failed to initialize costs ", prices.getSingleColor(), 0.25,0.1);
     }
 
    
