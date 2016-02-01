@@ -19,7 +19,6 @@ import static org.junit.Assert.*;
  * @author theranjalinilaweera
  */
 public class CostCalculatorTest {
-    private static final double DELTA = 1e-15;
     
     public CostCalculatorTest() {
     }
@@ -62,6 +61,7 @@ public class CostCalculatorTest {
         
         printJob = printJobs.get(1);
         assertEquals("Invalid calc for double sided black",printJob.getJobCost().getBlackCost(), 0.5,0.1);
+        //TODO add the rest of the tests
         
     }
 }
