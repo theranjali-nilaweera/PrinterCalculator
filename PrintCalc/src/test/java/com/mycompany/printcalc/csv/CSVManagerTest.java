@@ -4,6 +4,7 @@
  */
 package com.mycompany.printcalc.csv;
 
+import com.mycompany.printcalc.model.PrintJob;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -50,7 +51,7 @@ public class CSVManagerTest {
         String fileNameInResource = "TestPrintJobs.csv";
         CSVManager instance = new CSVManager();
         try {
-             List<CSVRecord> csv = instance.getPrintJobInResourceFile(fileNameInResource);
+             List<PrintJob> csv = instance.getPrintJobsInFile(fileNameInResource);
             assertNotNull("File could not be parsed properly",csv);
         } catch (IOException ex) {
             Logger.getLogger(CSVManagerTest.class.getName()).log(Level.SEVERE, null, ex);

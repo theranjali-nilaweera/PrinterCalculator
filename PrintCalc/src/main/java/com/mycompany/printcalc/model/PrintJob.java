@@ -25,6 +25,13 @@ public class PrintJob {
         this.jobCost = new Cost();
     }
     
+       public PrintJob(String totalPages, String colorPages, String isDoubleSided) {
+        this.totalPages = (totalPages==null || totalPages.isEmpty())?0:Integer.parseInt(totalPages) ;
+        this.colorPages = (colorPages==null || colorPages.isEmpty())?0:Integer.parseInt(colorPages) ;
+        this.isDoubleSided = (isDoubleSided==null || isDoubleSided.isEmpty())?false:Boolean.parseBoolean(isDoubleSided) ;
+        this.jobCost = new Cost();
+    }
+    
     
 
     public int getTotalPages() {
