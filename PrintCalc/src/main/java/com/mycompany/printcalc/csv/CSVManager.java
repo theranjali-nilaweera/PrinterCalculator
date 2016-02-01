@@ -44,7 +44,7 @@ public class CSVManager {
   
     public List<CSVRecord> getPrintJobInResourceFile(String fileNameInResource) throws IOException {
 
-            CSVParser csvParser = new CSVParser(openCSVResource(fileNameInResource), CSVFormat.DEFAULT.withHeader().withIgnoreSurroundingSpaces(true));
+            CSVParser csvParser = new CSVParser(openCSVResource(fileNameInResource), CSVFormat.DEFAULT.withIgnoreSurroundingSpaces(true));
             List<CSVRecord> csvs = csvParser.getRecords();
             for (Iterator<CSVRecord> it = csvs.iterator(); it.hasNext();) {
                 CSVRecord cSVRecord = it.next();
@@ -63,7 +63,7 @@ public class CSVManager {
     //TODO generalize the file read for uploaded file
     public List<PrintJob> getPrintJobsInFile(String fileNameInResource) throws IOException {
          List<CSVRecord> csvRecords = getPrintJobInResourceFile(fileNameInResource);
-          List<PrintJob> printJobs = new ArrayList<>();
+         List<PrintJob> printJobs = new ArrayList<>();
          for (CSVRecord cSVRecord : csvRecords) {
              if (!isCSVRecordValid(cSVRecord)) {
                  continue;

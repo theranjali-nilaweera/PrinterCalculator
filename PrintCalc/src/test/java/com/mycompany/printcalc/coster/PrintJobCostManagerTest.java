@@ -4,12 +4,14 @@
  */
 package com.mycompany.printcalc.coster;
 
+import com.mycompany.printcalc.model.PrintJob;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -44,6 +46,10 @@ public class PrintJobCostManagerTest {
         System.out.println("costJobsInFile");
         String fileName = "TestPrintJobs.csv";
         PrintJobCostManager instance = new PrintJobCostManager();
-        instance.costJobsInFile(fileName);
+        List<PrintJob> printJobs = instance.costJobsInFile(fileName);
+        
+        PrintJob printJob = printJobs.get(printJobs.size()-1);
+        assertEquals("Invalid calc for double sided color",printJob.getJobCost().getColorCost() , 0,0.1);
+       
     }
 }

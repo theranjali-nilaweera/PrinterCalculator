@@ -7,6 +7,7 @@ package com.mycompany.printcalc.coster;
 import com.mycompany.printcalc.csv.CSVManager;
 import com.mycompany.printcalc.model.PrintJob;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,22 +30,24 @@ public class PrintJobCostManager {
     
     
     
-    public void costJobsInFile(String fileName){
+    public List<PrintJob> costJobsInFile(String fileName){
+        List<PrintJob> printJobs= new ArrayList<>();
         try {
-            List<PrintJob> printJobs =  csvManager.getPrintJobsInFile(fileName);
+            printJobs =  csvManager.getPrintJobsInFile(fileName);
             costCalculator.calulateCostForPrintJobs(printJobs);
             printAllJobDetailsToConsole(printJobs);
+            
         } catch (IOException ex) {
             System.out.println("");
             logger.log(Level.SEVERE, null, ex);
         }
-        
+        return printJobs;
     }
     
     public void printAllJobDetailsToConsole(List<PrintJob> printJobs){
         System.out.println("Total pages \t Double sided \t Color pages \t B&W pages \t\t  Total Cost \n");
         for (PrintJob printJob : printJobs) {
-            System.out.format("%d \t\t  %s \t\t  %dpg = $%.2f \t  %dpg = $%.2f \t  $%.2f \n",
+            System.out.format("%d \t\t  %s \t\t  %dpg = $%.2f \t  %dpg = $%.2f \t\t  $%.2f \n",
                     printJob.getTotalPages(),
                     (printJob.isIsDoubleSided() ? "Yes" : "No"),
                     printJob.getColorPages(),
@@ -53,5 +56,6 @@ public class PrintJobCostManager {
                     printJob.getJobCost().getBlackCost(),
                     printJob.getJobCost().getTotalJobCost());
         }
-    }
+        
+    }   
 }
